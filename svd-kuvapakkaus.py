@@ -6,7 +6,7 @@
 import numpy as np
 import PIL.Image as img
 
-def SVD_kuvanpakkaus(kuvatiedosto, k):
+def svd_kuvanpakkaus(kuvatiedosto, k):
     # Kuvan avaaminen
     kuva = img.open(kuvatiedosto)
     # Muunnos numpy-taulukoksi
@@ -30,7 +30,8 @@ def SVD_kuvanpakkaus(kuvatiedosto, k):
     return pakattu_kuva
 
 # jpg-kuvatiedoston sijainti ja käytettävien singulaariarvojen määrä
-kuvatiedosto, k = "kuva.jpg", 200
-pakattu_kuva = SVD_kuvanpakkaus(kuvatiedosto, k)
+kuvatiedosto = "kuva.jpg"
+k = 200
+pakattu_kuva = svd_kuvanpakkaus(kuvatiedosto, k)
 # Muunnetaan saatu taulukko kuvaksi tallennettavaan muotoon, ja tallennetaan
 tallennettava_kuva = img.fromarray(pakattu_kuva).save(f"svd_pakkaus_k{k}.jpg")
