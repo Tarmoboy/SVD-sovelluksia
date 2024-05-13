@@ -26,7 +26,7 @@ def alusta_rivikeskiarvoilla(arvostelutaulukko):
         Taulukko, joka sisältää puuttuvia alkioita.
 
     Palauttaa
-    -------
+    ---------
     R_x : numpy.ndarray
         Arvostelutaulukosta luotu matriisi, jonka puuttuvat alkiot on 
         täydennetty rivikeskiarvoilla.
@@ -68,7 +68,7 @@ def svd_puuttuvien_iterointi(R, puuttuvat, k=5, iteroi=1, gamma=0):
         ennen matriisin uudelleenluomista. Oletuksena kerrointa ei käytetä.
 
     Palauttaa
-    ----------
+    ---------
     approksimaatiot : pandas.DataFrame
         Matriisin R approksimaatio taulukkomuodossa.
     '''
@@ -99,7 +99,7 @@ def laske_virheet(approksimaatiot, testijoukko):
         Testidata, joka sisältää todelliset arvostelut.
     
     Palauttaa
-    -------
+    ---------
     rmse : float
         Laskettu keskineliövirheen neliöjuuri (RMSE).
     mae : float
@@ -138,7 +138,7 @@ def suosittele(approksimaatiot, userId, elokuvat, arvostelut, suosit=20):
         Kuinka monta elokuvasuositusta halutaan palautettavan, oletus 20.
 
     Palauttaa
-    -------
+    ---------
     u_arvostelut : pandas.DataFrame
         Kaikki valitun käyttäjän antamat elokuva-arvostelut.
     suositukset : pandas.DataFrame
@@ -218,12 +218,12 @@ arvosteltu, suositukset = suosittele(approksimaatiot, kayttaja, elokuvat,
                                      arvostelut, suosituksia)
 print(f'RMSE: {rmse}')
 print(f' MAE: {mae}')
-print('------------------------------------------------------------\n')
+print('------------------------\n')
 print(f'Käyttäjän id {kayttaja} parhaiten arvostelemat elokuvat, ' 
       '20 ensimmäistä')
-print('------------------------------------------------------------')
+print('----------------------------------------------------------------')
 print(arvosteltu.head(20))
-print('------------------------------------------------------------\n')
+print('\n')
 print(f'Käyttäjälle id {kayttaja} suositeltavia elokuvia, {suosituksia} ' 
       'suositelluinta')
 print('------------------------------------------------------------')
