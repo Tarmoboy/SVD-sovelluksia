@@ -1,7 +1,7 @@
 '''
 Tiedoston nimi: svd-elokuvasuosittelu.py
 Tekijä: Tarmo Ilves
-Viimeksi muokattu: 14.5.2024
+Viimeksi muokattu: 15.5.2024
 Kuvaus: Elokuvasuositusten tekeminen singulaariarvohajotelman avulla. 
         Mahdollisuus myös iteroimalla sekä regularisointikertoimella  
         parantaa saatavia suosituksia. Esimerkkinä toiminnasta käytetty 
@@ -177,8 +177,15 @@ def suosittele(approksimaatiot, userId, elokuvat, arvostelut, suosit=20):
 arvostelut = pd.read_csv('ml-latest-small/ratings.csv', sep=',', 
                          usecols=['userId', 'movieId', 'rating'])
 # Arvosteludatan jakaminen opetus- ja testijoukkoihin 75 % - 25 %
-opetusjoukko, testijoukko = train_test_split(arvostelut, test_size=0.25, 
-                                             random_state=42)
+opetusjoukko_i, testijoukko_i = train_test_split(arvostelut.index, 
+                                                 test_size=0.25, 
+                                                 random_state=42)
+# Opetusjoukon taulukon koko vastaamaan arvostelut-taulukkoa
+opetusjoukko = arvostelut.copy()
+# Testijoukossa sijaitsevat arvostelut määrittelemättömiksi
+opetusjoukko.loc[testijoukko_i, 'rating'] = np.nan
+# Testijoukon luonti indeksien perusteella
+testijoukko = arvostelut.loc[testijoukko_i]
 # Elokuvatiedot sisältävän tiedoston luku
 elokuvat = pd.read_csv('ml-latest-small/movies.csv', sep=',',
                        usecols=['movieId', 'title', 'genres'])
@@ -206,7 +213,7 @@ arvostelumatriisi, puuttuvat = alusta_rivikeskiarvoilla(arvostelutaulukko)
 #plt.show()
 # Iteratiivinen SVD
 approksimaatiot = svd_puuttuvien_iterointi(arvostelumatriisi, puuttuvat, 
-                                           iteroi=5, k=25, gamma=15.5)
+                                           iteroi=5, k=25, gamma=15.6)
 # RMSE ja MAE laskeminen
 rmse, mae = laske_virheet(approksimaatiot, testijoukko)
 # Käyttäjän id:n valinta
