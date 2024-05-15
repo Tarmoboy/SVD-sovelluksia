@@ -143,7 +143,6 @@ def suosittele(approksimaatiot, userId, elokuvat, arvostelut, suosit=20):
         Kaikki valitun käyttäjän antamat elokuva-arvostelut.
     suositukset : pandas.DataFrame
         Elokuvasuosituksia valitulle käyttäjälle.
-
     '''
     # Ennustetut arvostelut käyttäjälle userId
     u_ennusteet = approksimaatiot.loc[userId].sort_values(ascending=False)
