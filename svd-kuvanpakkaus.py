@@ -28,7 +28,7 @@ def svd_kuvanpakkaus(kuvatiedosto, k):
     kuva = img.open(kuvatiedosto)
     # Muunnos numpy-taulukoksi
     kuva_taulukkona = np.array(kuva)
-    # Jaetaan värikanavat omiksi taulukoiksi (R, G, B)
+    # Jaetaan värikanavat omiksi matriiseiksi R, G, B
     R = kuva_taulukkona[:, :, 0]
     G = kuva_taulukkona[:, :, 1]
     B = kuva_taulukkona[:, :, 2]
