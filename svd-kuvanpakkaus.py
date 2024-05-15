@@ -22,7 +22,7 @@ def svd_kuvanpakkaus(kuvatiedosto, k):
     Palauttaa
     ---------
     pakattu_kuva : numpy.ndarray
-        Singulaariarvohajotelman avulla käsitelty kuva. 
+        Singulaariarvohajotelman avulla käsitelty kuva taulukkomuodossa. 
     '''
     # Kuvan avaaminen
     kuva = img.open(kuvatiedosto)
@@ -52,5 +52,5 @@ kuvatiedosto = 'kuva.jpg'
 k = 250
 # Funktion kutsuminen
 pakattu_kuva = svd_kuvanpakkaus(kuvatiedosto, k)
-# Muunnetaan saatu taulukko kuvaksi tallennetaan
+# Muunnetaan saatu taulukko kuvaksi ja tallennetaan
 tallennettava_kuva = img.fromarray(pakattu_kuva).save(f'svd_k{k}.jpg')
