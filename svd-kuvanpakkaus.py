@@ -1,7 +1,7 @@
 '''
 Tiedoston nimi: svd-kuvanpakkaus.py
 Tekijä: Tarmo Ilves
-Viimeksi muokattu: 14.5.2024
+Viimeksi muokattu: 16.5.2024
 Kuvaus: Kuvanpakkausta singulaariarvohajotelman avulla. Ohjelma esittää
         tavan pakata värillisen kuvatiedoston pienempään kokoon.
 '''
