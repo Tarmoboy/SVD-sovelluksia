@@ -229,8 +229,7 @@ print('------------------------\n')
 print(f'Käyttäjän id {kayttaja} parhaiten arvostelemat elokuvat, ' 
       '20 ensimmäistä')
 print('----------------------------------------------------------------')
-print(arvosteltu.head(20))
-print('\n')
+print(arvosteltu.head(20), '\n')
 print(f'Käyttäjälle id {kayttaja} suositeltavia elokuvia, {suosituksia} ' 
       'suositelluinta')
 print('------------------------------------------------------------')
