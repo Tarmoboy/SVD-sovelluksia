@@ -212,7 +212,7 @@ arvostelumatriisi, puuttuvat = alusta_rivikeskiarvoilla(arvostelutaulukko)
 #plt.show()
 # Iteratiivinen SVD
 approksimaatiot = svd_puuttuvien_iterointi(arvostelumatriisi, puuttuvat, 
-                                           iteroi=5, k=25, gamma=15.6)
+                                           k=25, iteroi=5, gamma=15.6)
 # RMSE ja MAE laskeminen
 rmse, mae = laske_virheet(approksimaatiot, testijoukko)
 # Käyttäjän id:n valinta
