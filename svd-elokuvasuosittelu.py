@@ -7,7 +7,6 @@ Kuvaus: Elokuvasuositusten tekeminen singulaariarvohajotelman avulla.
         parantaa saatavia suosituksia. Esimerkkinä toiminnasta käytetty 
         MovieLens Latest Small -tietoaineistoa.
 '''
-
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -31,7 +30,7 @@ def alusta_rivikeskiarvoilla(arvostelutaulukko):
         Arvostelutaulukosta luotu matriisi, jonka puuttuvat alkiot on 
         täydennetty rivikeskiarvoilla.
     puuttuvat : numpy.ndarray
-        Boolean-matriisi, joka kertoo puuttuiko kunkin indeksin alkio vai ei
+        Boolean-matriisi, joka kertoo puuttuneiden alkioiden indeksit.
     '''
     # Matriisimuotoon
     R = arvostelutaulukko.values
@@ -64,8 +63,8 @@ def svd_puuttuvien_iterointi(R, puuttuvat, k=5, iteroi=1, gamma=0):
         Kuinka monta kertaa halutaan laskea puuttuvat arvot uusiksi. 
         Oletuksena lasketaan vain kerran.
     gamma : float, valinnainen
-        Regularisointikerroin, joka vähennetään jokaisesta singulaariarvosta
-        ennen matriisin uudelleenluomista. Oletuksena kerrointa ei käytetä.
+        Regularisointikerroin, joka vähennetään singulaariarvoista ennen 
+        matriisin uudelleenluomista. Oletuksena kerrointa ei käytetä.
 
     Palauttaa
     ---------
