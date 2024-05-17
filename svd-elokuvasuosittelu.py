@@ -1,7 +1,7 @@
 '''
 Tiedoston nimi: svd-elokuvasuosittelu.py
 Tekijä: Tarmo Ilves
-Viimeksi muokattu: 16.5.2024
+Viimeksi muokattu: 17.5.2024
 Kuvaus: Elokuvasuositusten tekeminen singulaariarvohajotelman avulla. 
         Mahdollisuus myös iteroimalla sekä regularisointikertoimella  
         parantaa saatavia suosituksia. Esimerkkinä toiminnasta käytetty 
@@ -75,7 +75,7 @@ def svd_puuttuvien_iterointi(R, puuttuvat, k=5, iteroi=1, gamma=0):
     for _ in range(iteroi):
         # Kompakti SVD
         U, Sigma, VT = np.linalg.svd(R_i, full_matrices=False)
-        # Regularisaatiokertoimen vähentäminen singulaariarvoista
+        # Regularisointikertoimen vähentäminen singulaariarvoista
         Sigma_reg = np.maximum(Sigma - gamma, 0)
         # Approksimaatio astetta k
         R_k = np.dot(U[:, :k], np.dot(np.diag(Sigma_reg[:k]), VT[:k, :]))
